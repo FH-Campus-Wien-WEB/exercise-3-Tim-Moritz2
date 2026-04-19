@@ -1,25 +1,59 @@
 @import url(base.css);
 
-h1 {
-  font-size: 200%;
-  margin: 8px 0px;
-}
+
+/*Basic page setup*/
+
 
 /* Constrain the page to the viewport */
 html, body {
   height: 100vh;
 }
 
-/* Center the nav's header and list */
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
+body {
+  margin: 0;
+  display: grid;
+  min-height: 100vh;
+  
+  grid-template-areas:
+    "h"
+    "n"
+    "m"
+    "f";
+
+  grid-template-rows: auto auto 1fr auto;
 }
 
-/* navigation buttons have full width */
-nav button {
-  width: 100%;
+header { grid-area: h; }
+nav    { grid-area: n; }
+main   { grid-area: m; }
+footer { grid-area: f; }
+
+@media (min-width: 900px) {
+  body {
+    grid-template-areas:
+      "h h"
+      "n m"
+      "f f";
+
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+
+/*General styling*/
+
+
+header, nav, footer {
+  background: #222;
+  color: white;
+  padding: 15px;
+}
+
+h1 {
+  font-size: 200%;
+  margin-bottom: 10px;
 }
 
 /* Remove unnecessary space and bullets from the lists */
@@ -29,35 +63,79 @@ ul {
   list-style-type: none;
 }
 
-/* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
-
+/* navigation buttons have full width */
+nav button {
+  width: 100%;
+}
 
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
+ header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Center the nav's header and list */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
+ nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 /* Task 3.3. Make the main element a Flexbox container */
+main {
+  overflow-y: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+}
 
 
 /* Task 3.4. Make the footer's ul a Flexbox container */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
-/* From here on styling from exercise 1 */
+/* Movie cards styling*/
+
+
 img {
-  border-radius: 12px;
+    max-width: 200px;
+    border-radius: 10px;
 }
 
 article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
-  width: 384px;
-  margin: 8px;
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    flex: 0 0 700px;
 }
 
 a {
@@ -69,9 +147,9 @@ span {
 }
 
 .genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
-  font-weight: bold;
+    background: lightblue;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    display: inline-block;
 }
