@@ -82,7 +82,21 @@ const movies = {
       poster: "https://m.media-amazon.com/images/I/51x2FpiS-UL._SY300_SX300_QL70_ML2_.jpg",
       metascore: 58,
       imdbRating: 8.3
-   }
+   },
+   tt007: {
+      imdbID: "tt007",
+      title: "Mo",
+      released: "2006-02-02",
+      runtime: 1000,
+      genres: ["Drama"],
+      directors: ["Mo"],
+      writers: ["Mo"],
+      actors: ["Mo"],
+      plot: "Bestes Leben",
+      poster: "https://static.vecteezy.com/system/resources/thumbnails/049/576/186/small/sun-with-sunglasses-clipart-png.png",
+      metascore: 100,
+      imdbRating: 10
+   }   
 };
 
 module.exports = movies;

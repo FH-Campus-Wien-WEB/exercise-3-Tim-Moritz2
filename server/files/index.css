@@ -9,6 +9,11 @@ html, body {
   height: 100vh;
 }
 
+header { grid-area: h; }
+nav    { grid-area: n; }
+main   { grid-area: m; }
+footer { grid-area: f; }
+
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
 body {
   margin: 0;
@@ -23,11 +28,6 @@ body {
 
   grid-template-rows: auto auto 1fr auto;
 }
-
-header { grid-area: h; }
-nav    { grid-area: n; }
-main   { grid-area: m; }
-footer { grid-area: f; }
 
 @media (min-width: 900px) {
   body {

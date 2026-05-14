@@ -82,26 +82,35 @@ window.onload = function () {
       const genres = JSON.parse(xhr.responseText);
 
       // ALL Button
-      const allLi = document.createElement("li");
-      const allButton = document.createElement("button");
+      //const allLi = document.createElement("li");
+      //const allButton = document.createElement("button");
 
-      allButton.textContent = "All";
-      allButton.onclick = () => loadMovies();
+      //allButton.textContent = "All";
+      //allButton.onclick = () => loadMovies();
 
-      allLi.appendChild(allButton);
-      listElement.appendChild(allLi);
+      //allLi.appendChild(allButton);
+      //listElement.appendChild(allLi);
+
+      new ElementBuilder("li").append(new ElementBuilder("button").text("All").listener("click", () => loadMovies()))
+      .appendTo(listElement);
 
       // Genre Buttons
+
       for (const genre of genres) {
-        const li = document.createElement("li");
-        const button = document.createElement("button");
-
-        button.textContent = genre;
-        button.onclick = () => loadMovies(genre);
-
-        li.appendChild(button);
-        listElement.appendChild(li);
+        new ElementBuilder("li").append(new ElementBuilder("button").text(genre).listener("click", () => loadMovies(genre)))
+          .appendTo(listElement);
       }
+
+      //for (const genre of genres) {
+        //const li = document.createElement("li");
+        //const button = document.createElement("button");
+
+        //button.textContent = genre;
+        //button.onclick = () => loadMovies(genre);
+
+        //li.appendChild(button);
+        //listElement.appendChild(li);
+      //}
       /* When a first button exists, we click it to load all movies. */
       const firstButton = document.querySelector("nav button");
       if (firstButton) {
